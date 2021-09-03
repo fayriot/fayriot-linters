@@ -1,6 +1,6 @@
 {
     "name": "@fayriot/linters",
-    "version": "0.0.5",
+    "version": "1.0.0",
     "description": "ESLint configs",
     "license": "MIT",
     "keywords": [
