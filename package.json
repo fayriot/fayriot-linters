@@ -1,5 +1,5 @@
 {
-    "name": "@friot/linters",
+    "name": "@fayriot/linters",
     "version": "0.0.0",
     "description": "ESLint configs",
     "license": "MIT",
