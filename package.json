@@ -21,7 +21,7 @@
         "postrelease": "npm run copy:readme && git add package.json package-lock.json ../README.md && git commit -m \"🐣 Version released\" && git push"
     },
     "np": {
-        "contents": "dist",
+        "contents": "./dist",
         "yolo": true,
         "anyBranch": true
     },
