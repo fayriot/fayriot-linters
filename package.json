@@ -11,7 +11,7 @@
     "scripts": {
         "cpx": "npm exec -- cpx",
         "copy:readme": "npm run cpx -- README.md ../",
-        "conventional-changelog": "node ../node_modules/conventional-changelog-cli/cli.js",
+        "conventional-changelog": "node ./node_modules/conventional-changelog-cli/cli.js",
         "changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s -r 0",
         "version": "npm run changelog && git add CHANGELOG.md && npm run build",
         "clean": "npm exec -- rimraf dist/",
