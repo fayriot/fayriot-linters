@@ -1,0 +1,69 @@
+{
+    "name": "@fayriot/linters",
+    "version": "0.0.1",
+    "description": "ESLint configs",
+    "license": "MIT",
+    "keywords": [
+        "eslint",
+        "eslintconfig",
+        "eslint-config"
+    ],
+    "scripts": {
+        "cpx": "npm exec -- cpx",
+        "copy:readme": "npm run cpx -- README.md ../",
+        "conventional-changelog": "node ../node_modules/conventional-changelog-cli/cli.js",
+        "changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s -r 0",
+        "version": "npm run changelog && git add CHANGELOG.md && npm run build",
+        "clean": "npm exec -- rimraf dist/",
+        "copy:assets": "npm run cpx -- linters/**/* dist && npm run cpx -- README.md dist && npm run cpx -- CHANGELOG.md dist && npm run cpx -- package.json dist",
+        "build": "npm run clean && npm run copy:assets",
+        "release": "npm run lint && npm exec np",
+        "postrelease": "npm run copy:readme && git add package.json package-lock.json ../README.md && git commit -m \"🐣 Version released\" && git push"
+    },
+    "np": {
+        "contents": "dist",
+        "yolo": true,
+        "anyBranch": true
+    },
+    "author": {
+        "name": "fayriot"
+    },
+    "maintainers": [
+        {
+            "email": "fayriot@gmail.com",
+            "name": "Kirill Khrushchöv"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fayriot/fayriot-linters.git"
+    },
+    "homepage": "https://github.com/fayriot/fayriot-linters#readme",
+    "devDependencies": {
+        "conventional-changelog": "^3.1.24",
+        "conventional-changelog-cli": "^2.1.1",
+        "conventional-github-releaser": "^3.1.5",
+        "np": "^6.2.3",
+        "rimraf": "^2.6.3"
+    },
+    "peerDependencies": {
+        "@typescript-eslint/eslint-plugin": "4.16.1",
+        "@typescript-eslint/parser": "4.16.1",
+        "eslint": "^7.6.0",
+        "eslint-plugin-import": "2.22.1",
+        "eslint-plugin-jsdoc": "30.7.6",
+        "eslint-plugin-prefer-arrow": "1.2.2",
+        "eslint-config-prettier": "6.15.0",
+        "eslint-plugin-node": "11.1.0",
+        "eslint-plugin-prettier": "3.1.4",
+        "prettier": "2.2.1",
+        "stylelint": "13.8.0",
+        "stylelint-config-prettier": "8.0.2",
+        "stylelint-config-standard": "20.0.0",
+        "stylelint-order": "4.1.0",
+        "stylelint-prettier": "1.1.2"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

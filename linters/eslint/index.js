@@ -1,0 +1,111 @@
+module.exports = {
+    env: {
+        browser: true,
+        es2020: true,
+    },
+    overrides: [
+        {
+            files: ['*.ts'],
+            parserOptions: {
+                "createDefaultProgram": true
+            },
+            extends: [
+                'plugin:@typescript-eslint/eslint-recommended',
+                'plugin:prettier/recommended'
+            ],
+            rules: {
+                'no-var': 'error',
+                '@typescript-eslint/no-unused-vars': ['warn', {vars: 'all', args: 'none'}],
+                '@typescript-eslint/array-type': [
+                    'error',
+                    {
+                        default: 'array-simple',
+                    },
+                ],
+                quotes: [
+                    'error',
+                    'single',
+                    {
+                        avoidEscape: true,
+                    },
+                ],
+                'max-len': [
+                    'error',
+                    {
+                        code: 160,
+                        ignoreUrls: true,
+                        ignoreComments: true,
+                        ignorePattern: '^import |^export +(.*?)',
+                        ignoreRegExpLiterals: true,
+                    },
+                ],
+
+                'grouped-accessor-pairs': ['error', 'setBeforeGet'],
+                '@typescript-eslint/naming-convention': [
+                    'error',
+                    {
+                        selector: 'typeLike',
+                        format: ['PascalCase'],
+                    },
+                    {
+                        selector: 'property',
+                        modifiers: ['private'],
+                        format: ['camelCase'],
+                        leadingUnderscore: 'require',
+                    },
+                    {
+                        selector: 'variable',
+                        format: ['camelCase', 'UPPER_CASE'],
+                        leadingUnderscore: 'allow',
+                    },
+                ],
+                '@typescript-eslint/member-ordering': [
+                    'error',
+                    {
+                        default: [
+                            // Index signature
+                            'signature',
+
+                            // Fields
+                            'private-static-field',
+                            'protected-static-field',
+                            'public-static-field',
+
+                            'private-instance-field',
+                            'private-decorated-field',
+                            'protected-decorated-field',
+                            'protected-instance-field',
+                            'public-decorated-field',
+                            'public-instance-field',
+
+                            'private-abstract-field',
+                            'protected-abstract-field',
+                            'public-abstract-field',
+
+                            'private-constructor',
+                            'protected-constructor',
+                            'public-constructor',
+
+                            'public-static-method',
+                            'protected-static-method',
+                            'private-static-method',
+
+                            'public-decorated-method',
+                            'protected-decorated-method',
+                            'private-decorated-method',
+
+                            'public-instance-method',
+                            'protected-instance-method',
+                            'private-instance-method',
+
+                            'public-abstract-method',
+                            'protected-abstract-method',
+                            'private-abstract-method',
+                        ],
+                    },
+                ],
+            },
+        },
+    ]
+}
+
