@@ -17,7 +17,7 @@
         "clean": "npm exec -- rimraf dist/",
         "copy:assets": "npm run cpx -- linters/**/* dist && npm run cpx -- README.md dist && npm run cpx -- CHANGELOG.md dist && npm run cpx -- package.json dist",
         "build": "npm run clean && npm run copy:assets",
-        "release": "npm run lint && npm exec np",
+        "release": "npm exec np",
         "postrelease": "npm run copy:readme && git add package.json package-lock.json ../README.md && git commit -m \"🐣 Version released\" && git push"
     },
     "np": {
